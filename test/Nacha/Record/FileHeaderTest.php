@@ -2,7 +2,9 @@
 
 namespace Nacha\Record;
 
-class FileHeaderTest extends \PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class FileHeaderTest extends TestCase {
 
 	public function testFileHeader_AllFields() {
 		// given

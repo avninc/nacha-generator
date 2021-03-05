@@ -2,14 +2,15 @@
 
 namespace Nacha;
 
-use Nacha\Record\DebitEntry;
-use Nacha\Record\CcdEntry;
-use Nacha\Record\Addenda;
 use Nacha\Field\TransactionCode;
+use Nacha\Record\Addenda;
+use Nacha\Record\DebitEntry;
+use PHPUnit\Framework\TestCase;
 
-class FileTest extends \PHPUnit_Framework_TestCase {
+class FileTest extends TestCase {
 
-	public function setup() {
+	public function setUp(): void
+    {
 		$this->file = new File();
 		$this->file->getHeader()->setPriorityCode(1)
 			->setImmediateDestination('051000033')

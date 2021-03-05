@@ -2,19 +2,28 @@
 
 namespace Nacha\Field;
 
-class AmountTest extends \PHPUnit_Framework_TestCase {
+use Nacha\Field\InvalidFieldException;
+use PHPUnit\Framework\TestCase;
+
+class AmountTest extends TestCase {
 
 	/**
 	 * @expectedException \Nacha\Field\InvalidFieldException
 	 */
-	public function testInvalidLength_Float() {
+	public function testInvalidLength_Float()
+    {
+        $this->expectException(InvalidFieldException::class);
+
 		new Amount(100000000.00); // only accepts $99M
 	}
 
 	/**
 	 * @expectedException \Nacha\Field\InvalidFieldException
 	 */
-	public function testInvalidLength_String() {
+	public function testInvalidLength_String()
+    {
+        $this->expectException(InvalidFieldException::class);
+
 		new Amount('100000000.00'); // only accepts $99M
 	}
 
@@ -23,7 +32,7 @@ class AmountTest extends \PHPUnit_Framework_TestCase {
 		$sec = new Amount(100.99);
 
 		// then
-		$this->assertEquals('10099', (string)$sec);
+		$this->assertEquals('0000010099', (string)$sec);
 	}
 
 	public function testFloatStringOperations() {
@@ -31,7 +40,7 @@ class AmountTest extends \PHPUnit_Framework_TestCase {
 		$sec = new Amount('100.99');
 
 		// then
-		$this->assertEquals('10099', (string)$sec);
+		$this->assertEquals('0000010099', (string)$sec);
 	}
 
 	public function testFloatOperations_PreservesZeroDecimals() {
@@ -39,7 +48,7 @@ class AmountTest extends \PHPUnit_Framework_TestCase {
 		$sec = new Amount(100.00);
 
 		// then
-		$this->assertEquals('10000', (string)$sec);
+		$this->assertEquals('0000010000', (string)$sec);
 	}
 
 	public function testFloatStringOperations_PreservesZeroDecimals() {
@@ -47,7 +56,7 @@ class AmountTest extends \PHPUnit_Framework_TestCase {
 		$sec = new Amount('100.00');
 
 		// then
-		$this->assertEquals('10000', (string)$sec);
+		$this->assertEquals('0000010000', (string)$sec);
 	}
 
 }

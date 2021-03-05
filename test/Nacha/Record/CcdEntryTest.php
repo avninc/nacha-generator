@@ -2,9 +2,10 @@
 
 namespace Nacha\Record;
 
+use PHPUnit\Framework\TestCase;
 use Nacha\Field\TransactionCode;
 
-class CcdEntryTest extends \PHPUnit_Framework_TestCase {
+class CcdEntryTest extends TestCase {
 
 	public function testEntry_AllFields() {
 		// given

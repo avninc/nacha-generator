@@ -2,12 +2,16 @@
 
 namespace Nacha\Field;
 
-class StandardEntryClassTest extends \PHPUnit_Framework_TestCase {
+use Nacha\Field\InvalidFieldException;
+use PHPUnit\Framework\TestCase;
+
+class StandardEntryClassTest extends TestCase {
 
 	/**
 	 * @expectedException Nacha\Field\InvalidFieldException
 	 */
 	public function testInvalidType() {
+        $this->expectException(InvalidFieldException::class);
 		new StandardEntryClass('asd');
 	}
 

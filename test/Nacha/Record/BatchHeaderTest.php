@@ -3,8 +3,9 @@
 namespace Nacha\Record;
 
 use Nacha\Field\StandardEntryClass;
+use PHPUnit\Framework\TestCase;
 
-class BatchHeaderTest extends \PHPUnit_Framework_TestCase {
+class BatchHeaderTest extends TestCase {
 
 	public function testBatchHeader_AllFields() {
 		// given

@@ -2,7 +2,10 @@
 
 namespace Nacha\Field;
 
-class TransactionCodeTest extends \PHPUnit_Framework_TestCase {
+use Nacha\Field\InvalidFieldException;
+use PHPUnit\Framework\TestCase;
+
+class TransactionCodeTest extends TestCase {
 
 	private $creditCodes = [21,22,23,24,31,32,33,34,41,42,43,44,51,52,53,54];
 	private $debitCodes = [26,27,28,29,36,37,38,39,46,47,48,49,55,56];
@@ -11,6 +14,7 @@ class TransactionCodeTest extends \PHPUnit_Framework_TestCase {
 	 * @expectedException \Nacha\Field\InvalidFieldException
 	 */
 	public function testInvalidType() {
+        $this->expectException(InvalidFieldException::class);
 		new TransactionCode(40);
 	}
 

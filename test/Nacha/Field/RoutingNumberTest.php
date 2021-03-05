@@ -2,7 +2,10 @@
 
 namespace Nacha\Field;
 
-class RoutingNumberTest extends \PHPUnit_Framework_TestCase {
+use Nacha\Field\InvalidFieldException;
+use PHPUnit\Framework\TestCase;
+
+class RoutingNumberTest extends TestCase {
 
 	public function testLength() {
 		// given
@@ -16,6 +19,7 @@ class RoutingNumberTest extends \PHPUnit_Framework_TestCase {
 	 * @expectedException \Nacha\Field\InvalidFieldException
 	 */
 	public function testInvalidLength() {
+        $this->expectException(InvalidFieldException::class);
 		new RoutingNumber(111101);
 	}
 

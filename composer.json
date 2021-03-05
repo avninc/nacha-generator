@@ -1,5 +1,5 @@
 {
-	"name": "cvtrust/nacha-file-generator",
+	"name": "avninc/nacha-file-generator",
 	"license": "MIT",
 	"authors": [{
 		"name": "Philip Whitt",
@@ -10,7 +10,7 @@
 	"require": {
 	},
 	"require-dev": {
-		"phpunit/phpunit" : "4.5.*"
+		"phpunit/phpunit" : "^9.0"
 	},
 	"autoload": {
 		"psr-0": {

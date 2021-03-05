@@ -6,10 +6,12 @@ use Nacha\Field\TransactionCode;
 use Nacha\Record\DebitEntry;
 use Nacha\Record\CcdEntry;
 use Nacha\Record\Addenda;
+use PHPUnit\Framework\TestCase;
 
-class BatchTest extends \PHPUnit_Framework_TestCase {
-
-	public function setup() {
+class BatchTest extends TestCase
+{
+	public function setUp(): void
+    {
 		$this->batch = new Batch();
 		$this->batch->getHeader()->setBatchNumber(1)
 			->setCompanyName('MY BEST COMP')
@@ -128,10 +130,8 @@ class BatchTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertEquals((string)$this->batch->getHeader()->getServiceClassCode(), Batch::MIXED);
         $this->assertEquals(
-            "5200MY BEST COMP    INCLUDES OVERTIME   1419871234PPDPAYROLL   0602  0112     2010212340000001\n".
-            "62209101298746479999         0000060000Location 23    Best Co 23            S 0099363400000001\n".
-            "62709101298746479999         0000055000SomePerson1255 Alex Dubrovsky        S 0999363400000002\n".
-            "82000000020018202596000000055000000000060000A419871234                                 0000001",
+            "5200MY BEST COMP    INCLUDES OVERTIME   A419871234PPDPAYROLL   0602  0112     2        0000001\n".
+            "82000000000000000000000000000000000000000000A419871234                                 0000001",
             $output
         );
     }

@@ -2,7 +2,10 @@
 
 namespace Nacha\Field;
 
-class NumberTest extends \PHPUnit_Framework_TestCase {
+use Nacha\Field\InvalidFieldException;
+use PHPUnit\Framework\TestCase;
+
+class NumberTest extends TestCase {
 
 	public function testPadding() {
 		// given
@@ -30,6 +33,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase {
 	 * @expectedException \Nacha\Field\InvalidFieldException
 	 */
 	public function testTruncation() {
+        $this->expectException(InvalidFieldException::class);
 		new Number(111101, 5);
 	}
 
@@ -37,6 +41,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase {
 	 * @expectedException \Nacha\Field\InvalidFieldException
 	 */
 	public function testNotNumber() {
+        $this->expectException(InvalidFieldException::class);
 		new Number("testme", 5);
 	}
 

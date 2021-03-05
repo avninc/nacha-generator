@@ -2,7 +2,9 @@
 
 namespace Nacha\Record;
 
-class BlockTest extends \PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class BlockTest extends TestCase {
 
 	public function testBatchHeader_AllFields() {
 		// given

@@ -2,7 +2,10 @@
 
 namespace Nacha\Field;
 
-class StringTest extends \PHPUnit_Framework_TestCase {
+use Nacha\Field\InvalidFieldException;
+use PHPUnit\Framework\TestCase;
+
+class StringTest extends TestCase {
 
 	public function testPadding() {
 		// given
@@ -39,6 +42,7 @@ class StringTest extends \PHPUnit_Framework_TestCase {
 	 * @expectedException \Nacha\Field\InvalidFieldException
 	 */
 	public function testNotString() {
+        $this->expectException(InvalidFieldException::class);
 		new StringHelper(12, 32);
 	}
 

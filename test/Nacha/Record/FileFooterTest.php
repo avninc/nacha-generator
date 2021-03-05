@@ -2,7 +2,9 @@
 
 namespace Nacha\Record;
 
-class FileFooterTest extends \PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class FileFooterTest extends TestCase {
 
 	public function testFileFooter_AllFields() {
 		// given

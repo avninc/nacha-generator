@@ -2,7 +2,9 @@
 
 namespace Nacha\Record;
 
-class BatchFooterTest extends \PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class BatchFooterTest extends TestCase {
 
 	public function testBatchFooter_AllFields() {
 		// given

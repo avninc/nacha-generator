@@ -2,7 +2,9 @@
 
 namespace Nacha\Field;
 
-class CompanyNameTest extends \PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class CompanyNameTest extends TestCase {
 
 	public function testUpperCaseTriggerWord() {
 		// given
